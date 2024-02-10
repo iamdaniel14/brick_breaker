@@ -34,9 +34,7 @@ class Paddle {
       
     if (this.pos.x >width-this.w){
       this.pos.x= width-this.w;
-      
     } else if (this.pos.x <0){
-      
       this.pos.x=0;
     
     }}

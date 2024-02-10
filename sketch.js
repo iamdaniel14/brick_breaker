@@ -1,46 +1,30 @@
 
-
-
 let paddle;
 let ball ;
 let cols;
 let rows;
 let scl=20;
 let bricks=[];
+let life =5;
+let score=0;
 
 function setup() {
-  createCanvas(900, 900);
-  
-  
-  
-  
- 
+createCanvas(windowWidth*0.3, windowHeight*0.8);
  cols= width/scl;
  rows= (height *0.5)/scl;
   
-  console.log (cols)
+  console.log (cols);
  
    for (let i=0; i<cols; i++) { 
-     
-       bricks[i]=[];
+   bricks[i]=[];
    for (let j=0; j<rows; j++) {
     
      
      let x=i*scl;
      let y=j *scl;
-     
-     // let obj= { x:i*scl,y:j *scl};
-     
-     bricks[i][j]=new Bricks (x,y);
-       
-    
-   //bricks.push ();
-      
-       
-  
-  
+
+  bricks[i][j]=new Bricks (x,y);
   paddle= new Paddle ();
-  
   ball =new Ball ();
    }
 }}
@@ -51,14 +35,28 @@ function draw() {
   paddle.show ();
   paddle.update ();
   paddle.edges ();
-  
   ball.show ();
   ball .update ();
   ball.edges ();
-  
-  
-  
-  
+
+  if (ball.pos.y<=height+ball.r && ball.pos.y>=height ) {
+    life--;
+
+    ball.pos.set(random(width),random (height*0.7,height*0.8));
+
+if (life<1) {
+
+    push ()
+    fill ('red');
+    textAlign(CENTER);
+    textSize (80);
+    text ('GAME OVER',width/2,height*0.6)
+    noLoop ()
+   pop()
+
+}
+
+  }
   
   
   for (let i=0; i <cols; i++) {
@@ -68,15 +66,33 @@ function draw() {
     
     if (bricks[i][j].meets (ball)) {
       
-      ball.dir.y *=-1;
-      //console.log ('meets');
-      bricks[i].splice (j,1);
-      
-      
+      ball.dir.y*=-1;
+      if ( bricks[i].splice (j,1) ){
+        score++;
+
+      if (score>200) {
+
+        push ()
+        fill ('red');
+        textAlign(CENTER);
+        textSize (80);
+        text ('YOU WIN',width/2,height*0.6)
+        noLoop ()
+
+       pop()
+      }
+
+      }
+     
+
     }
-    
-    
+   
+
        }
+
+
+       document.querySelector('#score').innerHTML=score;
+       document.querySelector('#life').innerHTML=life;
   }
   
   

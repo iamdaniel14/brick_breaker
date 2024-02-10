@@ -1,8 +1,59 @@
 html, body {
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content:space-between;
+    box-sizing: border-box;
+
   }
   canvas {
     display: block;
+    margin-top: 100px;
+   margin-left: 400px;
+  }
+
+
+  
+
+  .life_score {
+
+  background-color: aqua;
+  height: fit-content;
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  } 
+
+  legend{
+    font-size: 24px;
+    color: red;
+  }
+
+  label{
+
+    font-size: 24px;
+  } 
+
+
+  P{
+
+    font-size: 24px;
+    color: brown;
+    margin: 0;
+  }
+
+  .input{
+
+    display: flex;
+    align-items: center;
+  }
+  .controls{
+    width: 150px;
+    height: fit-content;
+background-color: antiquewhite;
+position: absolute;
+top: 0;
+right: 0;
+
   }
   
