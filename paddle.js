@@ -8,9 +8,11 @@ class Paddle {
     }
     
     show (){
+      push ()
       noStroke ();
-      fill ('green')
+      fill ('#D4CB92')
       rect (this.pos.x,this.pos.y, this.w,this.h)
+      pop ()
       
     }
     
@@ -31,7 +33,7 @@ class Paddle {
     
     edges (){
       
-      
+
     if (this.pos.x >width-this.w){
       this.pos.x= width-this.w;
     } else if (this.pos.x <0){

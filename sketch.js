@@ -7,20 +7,23 @@ let scl=20;
 let bricks=[];
 let life =5;
 let score=0;
+let button;
 
 
 function setup() {
 let   canvas=createCanvas(windowWidth*0.3, windowHeight*0.8);
-  canvas.parent ('canvas-container');
- cols= width/scl;
+canvas.parent ('canvas-container');
+
+button=select('#button');
+button.mousePressed(refreshed);
+
+ cols=(width/scl);
  rows= (height *0.5)/scl;
-   for (let i=0; i<cols; i++) { 
+   for (let i=0; i<=cols; i++) { 
    bricks[i]=[];
    for (let j=0; j<rows; j++) {
-    
-     
-     let x=i*scl;
-     let y=j *scl;
+ let x=i*scl;
+ let y=j *scl;
 
   bricks[i][j]=new Bricks (x,y);
   paddle= new Paddle ();
@@ -41,7 +44,7 @@ function draw() {
   if (ball.pos.y<=height+ball.r && ball.pos.y>=height ) {
     life--;
 
-    ball.pos.set(random(width),random (height*0.7,height*0.8));
+    ball.pos.set(random(width),height*0.7);
 
 if (life<1) {
 
@@ -119,6 +122,10 @@ function keyPressed (){
 
 function keyReleased () {
   paddle.isMovingRight =false;
-  
   paddle.isMovingLeft =false;
 } 
+
+
+function refreshed (){
+  window.location.reload()
+}

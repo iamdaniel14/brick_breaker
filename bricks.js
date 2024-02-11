@@ -10,7 +10,11 @@ class Bricks {
     }
   
   show (){
+    push ();
+   fill ('#395C6B') 
   rect (this.pos.x, this.pos.y, this.w,this.h);
+
+  pop ()
      
   }
     
