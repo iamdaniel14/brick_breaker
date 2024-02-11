@@ -1,58 +1,68 @@
 html, body {
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content:space-between;
+    background-color: blanchedalmond;
     box-sizing: border-box;
-
-  }
-  canvas {
-    display: block;
-    margin-top: 100px;
-   margin-left: 400px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+   align-items: center;
   }
 
-
+.main-container{
+position: relative;
+    
+  }
   
+#canvas-container {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100%;
+margin-top: 100px;
 
-  .life_score {
+  }
 
-  background-color: aqua;
-  height: fit-content;
-  position: absolute;
-  top: 30px;
-  left: 20px;
+.life_score {
+  width: 100px;
+background-color: #BCD3F2;
+height: fit-content;
+position: absolute;
+top: 30px;
+left: 20px;
   } 
 
-  legend{
-    font-size: 24px;
-    color: red;
+ legend{
+  font-size: 24px;
+  color: red;
   }
 
   label{
-
-    font-size: 24px;
+  font-size: 24px;
   } 
 
 
-  P{
-
-    font-size: 24px;
-    color: brown;
-    margin: 0;
+  #score,#life{
+  font-size: 25px;
+  color: brown;
+   margin: 0;
+  }
+  #control-text{
+font-size:16px;
+color: brown;
+margin: 0;
   }
 
   .input{
-
     display: flex;
     align-items: center;
   }
   .controls{
-    width: 150px;
+    width: 350px;
     height: fit-content;
 background-color: antiquewhite;
 position: absolute;
-top: 0;
+bottom:-100;
 right: 0;
 
   }

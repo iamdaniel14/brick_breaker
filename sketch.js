@@ -8,13 +8,12 @@ let bricks=[];
 let life =5;
 let score=0;
 
+
 function setup() {
-createCanvas(windowWidth*0.3, windowHeight*0.8);
+let   canvas=createCanvas(windowWidth*0.3, windowHeight*0.8);
+  canvas.parent ('canvas-container');
  cols= width/scl;
  rows= (height *0.5)/scl;
-  
-  console.log (cols);
- 
    for (let i=0; i<cols; i++) { 
    bricks[i]=[];
    for (let j=0; j<rows; j++) {
@@ -89,25 +88,14 @@ if (life<1) {
    
 
        }
-
-
        document.querySelector('#score').innerHTML=score;
        document.querySelector('#life').innerHTML=life;
   }
-  
-  
-  
   if (ball.meets (paddle)) {
   ball.dir.y *=-1;
   }
   
 }
-
-  
-  
-  
-  
-  
 function keyPressed (){
   
   switch (keyCode){

@@ -4,6 +4,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/addons/p5.sound.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <title>brick breaker</title>
     <meta charset="utf-8" />
 
   </head>
@@ -12,30 +13,37 @@
     </main>
 
     <div class="main-container"> 
-   
-
     <div class="life_score">
     <form action="" >
        <div class="input"> 
         <label for="score">Score:</label>
-        <p id="score"></p></div>
+        <p id="score"></p>
+      </div>
          <div class="input"> 
         <label for="life">Life:</label>
         <p id="life"></p>
     </div>
 </form>
 </div>
-<script src="sketch.js"></script>
+
+
+<div id="canvas-container">
+
+</div>
+
 
 <div class="controls"> 
-
 <form action="" >
 <legend>Controls</legend>
-<p>*Press the left arrow key to move left and the right arrow key to move right</p>
+<p id="control-text">*Press the left arrow key to move left and the right arrow key to move right</p>
 </form>
 </div>
 
+<button>restart</button>
+
 </div>
+
+    <script src="sketch.js"></script>
      <script src="paddle.js"></script>
      <script src="ball.js"></script>
     <script src="bricks.js"></script>

@@ -6,6 +6,7 @@ class Ball {
       this.dir= createVector (2,1);
     }
   show (){
+    fill ('white')
     circle (this.pos.x,this.pos.y, this.r*2);
   }
     update (){
