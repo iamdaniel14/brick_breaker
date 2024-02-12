@@ -39,12 +39,12 @@ color: red;
 label{
 font-size: 24px;
   } 
-#score,#life,#levels{
+#score,#life,#level{
 font-size: 25px;
 color: brown;
 margin: 0;
   }
-#control-text{
+.control-text{
 font-size:16px;
 color: brown;
 margin: 0;
@@ -72,4 +72,14 @@ border: none;
 background-color: rgb(179, 138, 78);
 font-size: 15px;
   }
+
+  
+ #continue {
+  margin-top: 10px;
+  width: 100px;
+  height: 50px;
+  border: none;
+  background-color: rgb(179, 138, 78);
+  font-size: 15px;
+    }
   

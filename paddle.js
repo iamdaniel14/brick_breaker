@@ -28,7 +28,6 @@ class Paddle {
         this.move (-20);
       }
       
-      
     }
     
     edges (){
