@@ -72,7 +72,7 @@ if (life<1) {
       if ( bricks[i].splice (j,1) ){
         score++;
 
-      if (score>200) {
+      if (score>=200) {
 
         push ()
         fill ('red');
@@ -80,8 +80,7 @@ if (life<1) {
         textSize (80);
         text ('YOU WIN',width/2,height*0.6)
         noLoop ()
-
-       pop()
+        pop()
       }
 
       }

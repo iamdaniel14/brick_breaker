@@ -1,17 +1,16 @@
 html, body {
-    margin: 0;
-    padding: 0;
-    background-color: blanchedalmond;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-   align-items: center;
+  margin: 0;
+  padding: 0;
+  background-color: blanchedalmond;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   }
 
 .main-container{
 position: relative;
-    
   }
   
 #canvas-container {
@@ -19,61 +18,58 @@ display: flex;
 justify-content: center;
 align-items: center;
 height: 100%;
-margin-top: 100px;
+margin-top:10px;
 
   }
 
-.life_score {
-  width: 100px;
+ #nav-form{
+ width: 100%;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
 background-color: #BCD3F2;
-height: fit-content;
-position: absolute;
-top: 30px;
-left: 20px;
-  } 
-
- legend{
-  font-size: 24px;
-  color: red;
+margin-top: 10px;
   }
 
-  label{
-  font-size: 24px;
+legend{
+font-size: 24px;
+color: red;
+}
+
+label{
+font-size: 24px;
   } 
-
-
-  #score,#life{
-  font-size: 25px;
-  color: brown;
-   margin: 0;
+#score,#life,#levels{
+font-size: 25px;
+color: brown;
+margin: 0;
   }
-  #control-text{
+#control-text{
 font-size:16px;
 color: brown;
 margin: 0;
   }
-
 .input{
-display: flex;
-align-items: center;
+ width:100px;
+ display: flex;
+
   }
 .controls{
- margin-top: 10px;
- width: 350px;
- height: fit-content;
+margin-top: 10px;
+width: 350px;
+height: fit-content;
 background-color: rgb(209, 155, 85);
 position: absolute;
 bottom:-100;
 right: 0;
   }
 
-  #button {
- margin-top: 10px;
-   width: 100px;
-   height: 50px;
-   border: none;
-   background-color: rgb(179, 138, 78);
-   font-size: 15px;
-
+ #button {
+margin-top: 10px;
+width: 100px;
+height: 50px;
+border: none;
+background-color: rgb(179, 138, 78);
+font-size: 15px;
   }
   

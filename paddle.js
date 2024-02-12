@@ -25,7 +25,7 @@ class Paddle {
       if (this.isMovingRight) {
         this.move (20);
       } else if (this.isMovingLeft) {
-        this.move (-20)
+        this.move (-20);
       }
       
       
