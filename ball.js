@@ -3,7 +3,7 @@ class Ball {
       this.pos=createVector (width/2,height-100);
       this.vel =createVector (2,4);
       this.r =10;
-      this.dir= createVector (2,1);
+      this.dir= createVector (1,1);
       this.angle=random(TWO_PI);
     }
   show (){
@@ -14,8 +14,8 @@ class Ball {
      pop ()
   }
     update (){
-      this.pos.x+=this.vel.x*this.dir.x*cos(this.angle);
-      this.pos.y+=this.vel.y*this.dir.y *sin (this.angle);
+      this.pos.x+=this.vel.x*this.dir.x+cos(this.angle);
+      this.pos.y+=this.vel.y*this.dir.y +sin (this.angle);
     }
       meets (paddle){
       if (this.pos.x>paddle.pos.x-this.r && this.pos.x <paddle.pos.x+paddle.w+this.r && this.pos.y >paddle.pos.y -this.r  && this.pos.y< paddle.pos.y) {
@@ -25,14 +25,12 @@ class Ball {
     edges (){
       if (this.pos.x >width-this.r) {
         this.dir.x *=-1;
-      } else if (this.pos.x<+this.r){
+      } else if (this.pos.x<this.r){
         this.dir.x *=-1;
       } 
        else if (this.pos.y <this.r){
         this.dir.y *=-1;
-      } 
-      
-       
+      }  
     }
 
   }
