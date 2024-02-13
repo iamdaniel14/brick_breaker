@@ -10,6 +10,13 @@ let score=0;
 let button;
 let level=1;
 let isGoing=false;
+let youWin=false;
+let youLose=false;
+let chances =5;
+let levelTwo=20;
+let levelThree=40;
+let gameIsPlaying=false;
+
 
 
 function setup() {
@@ -34,34 +41,45 @@ button.mousePressed(refreshed);
 
 function draw() {
   background(220);
+
+
+ let buttonContinue=select('#continue');
+ buttonContinue.mousePressed(continueLoop);
+
+ 
+ let buttonStop=select('#stop');
+ buttonStop.mousePressed(stopTheGame);
   paddle.show ();
   paddle.edges ();
   ball.show ();
-  if(isGoing) ball .update (); 
- if (isGoing) paddle.update ();
-  
-  
-  
- 
   ball.edges ();
+  if(isGoing)  {
+  ball.update (); 
+  } 
+  if (isGoing) {
+    paddle.update ();
+  } 
+ 
   if (ball.pos.y<=height+ball.r && ball.pos.y>=height ) {
   life--;
  ball.pos.set(random(width),height*0.7);
 
-if (life==0) {
-
+if (life<=0) {
     push ()
     fill ('red');
     textAlign(CENTER);
     textSize (80);
-   isGoing=false;
-   text ('GAME OVER',width/2,height*0.6);
+    text ('GAME OVER',width/2,height*0.6);
+    youWin=false;
+    gameIsPlaying=false;
+    youLose=true;
+    isGoing=false;
+        chances--;
+    noLoop();
     pop()
 }
 
   }
-  
-  
   for (let i=0; i <cols; i++) {
     for (let j=0; j< bricks[i].length; j++) {
     
@@ -70,54 +88,49 @@ if (life==0) {
       ball.dir.y*=-1;
       if ( bricks[i].splice (j,1) ){
         score++;
-      if (score==10) {
+      if (score===levelTwo) {
         push ()
         fill ('red');
         textAlign(CENTER);
         textSize (80);
         text ('YOU WIN',width/2,height*0.6);
-        // noLoop()
+        youWin=true;
+        isGoing=false;
+        gameIsPlaying=false;
+        chances++;
+        noLoop();
         pop()
+      } else if (score===levelThree) {
+        push ()
+        fill ('red');
+        textAlign(CENTER);
+        textSize (80);
+        text ('YOU WIN',width/2,height*0.6);
+        youWin=true;
+        isGoing=false;
+        gameIsPlaying=false;
+        chances++;
+        noLoop();
+        pop();
       }
-
-      level=2;
 
       }
     }
-   
-
        }
        document.querySelector('#score').innerHTML=score;
        document.querySelector('#life').innerHTML=life;
        document.querySelector('#level').innerHTML=level;
-  }
-  if (ball.meets (paddle)) {
-    ball.dir.y *=-1;
-  }
-  
-}
-function keyPressed (){
-  
-  switch (keyCode){
-    
-  case RIGHT_ARROW:
-      
-  paddle.isMovingRight=true;
-     break;
-    case LEFT_ARROW:  
-   paddle.isMovingLeft=true;
-   break;   
- case ENTER: 
-  isGoing=true; 
-  break;
-  }
-}
-function keyReleased () {
-  paddle.isMovingRight =false;
-  paddle.isMovingLeft =false;
-} 
+       document.querySelector('#chances').innerHTML=chances;
+       if (!gameIsPlaying) {
+        document.querySelector('#stop').innerHTML='play';
+       } 
+       if (gameIsPlaying){
+        document.querySelector('#stop').innerHTML='stop';
 
-
-function refreshed (){
-  window.location.reload()
-}
+       }
+      }
+      if (ball.meets (paddle)) {
+       ball.dir.y *=-1;
+     }
+  
+    }

@@ -6,7 +6,6 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>brick breaker</title>
     <meta charset="utf-8" />
-
   </head>
   <body>
     <main>
@@ -16,17 +15,21 @@
    
     <form action="" id="nav-form" >
        <div class="input"> 
-        <label for="score">Score:</label>
-        <p id="score"></p>
+         <label for="score">Score:</label>
+         <p id="score"></p>
       </div>
       <div class="input"> 
         <label for="levels">Level:</label>
-        <p id="level"></p>
+         <p id="level"></p>
        </div>
+          <div class="input"> 
+          <label for="chances">Chances:</label>
+          <p id="chances"></p>
+      </div>
          <div class="input"> 
-        <label for="life">Life:</label>
-        <p id="life"></p>
-    </div>
+         <label for="life">Lives:</label>
+         <p id="life"></p>
+      </div>
   </form>
  
 
@@ -39,19 +42,23 @@
 <form action="" >
 <legend>Controls</legend>
 <p class="control-text">*Press the left arrow key to move left and the right arrow key to move right</p>
-<p class="control-text">*press Enter to start</p>
+<p class="control-text">*press <span class="enter"> Enter</span> to start</p>
 </form>
 </div>
-<button id="button">Restart</button>
+<button id="button">New game</button>
 </div>
-<!-- </div>
+</div>
 <button id="continue">continue</button>
-</div> -->
+</div>
+</div>
+<button id="stop">play</button>
+</div>
 </div>
 
     <script src="sketch.js"></script>
      <script src="paddle.js"></script>
      <script src="ball.js"></script>
     <script src="bricks.js"></script>
+    <script src="function.js"></script>
   </body>
 </html>

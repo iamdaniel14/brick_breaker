@@ -21,18 +21,14 @@ class Paddle {
     }
     
     update (){
-      
       if (this.isMovingRight) {
         this.move (20);
       } else if (this.isMovingLeft) {
         this.move (-20);
       }
-      
     }
     
     edges (){
-      
-
     if (this.pos.x >width-this.w){
       this.pos.x= width-this.w;
     } else if (this.pos.x <0){
