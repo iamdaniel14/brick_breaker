@@ -6,9 +6,10 @@ function keyPressed (){
       case LEFT_ARROW:  
      paddle.isMovingLeft=true;
      break;   
-  //  case ENTER: 
-  //   isGoing=true; 
-  //   break;
+   case ENTER: 
+    isGoing=true; 
+    gameIsPlaying=true;
+    break;
     }
   }
   
@@ -43,10 +44,17 @@ function keyPressed (){
   }
    }
   function stopTheGame (){
-   isGoing=true;
+    if(!gameIsPlaying && chances>=1 && youLose ) {
+    isGoing=true;
     gameIsPlaying=true;
-    loop ();
-
+    life=5;
+   loop ();
+    } 
+    if (gameIsPlaying && chances>=1 && youLose ) {
+        isGoing=false;
+        gameIsPlaying=false;
+    //  noLoop();
+    }
   } 
    
   

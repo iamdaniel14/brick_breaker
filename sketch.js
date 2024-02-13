@@ -13,8 +13,8 @@ let isGoing=false;
 let youWin=false;
 let youLose=false;
 let chances =5;
-let levelTwo=20;
-let levelThree=40;
+let levelTwo=100;
+let levelThree=100;
 let gameIsPlaying=false;
 
 
@@ -41,12 +41,8 @@ button.mousePressed(refreshed);
 
 function draw() {
   background(220);
-
-
  let buttonContinue=select('#continue');
  buttonContinue.mousePressed(continueLoop);
-
- 
  let buttonStop=select('#stop');
  buttonStop.mousePressed(stopTheGame);
   paddle.show ();
@@ -57,7 +53,7 @@ function draw() {
   ball.update (); 
   } 
   if (isGoing) {
-    paddle.update ();
+  paddle.update ();
   } 
  
   if (ball.pos.y<=height+ball.r && ball.pos.y>=height ) {
