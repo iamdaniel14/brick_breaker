@@ -60,7 +60,8 @@ width: 350px;
 height: fit-content;
 background-color: rgb(209, 155, 85);
 position: absolute;
-
+bottom:-100;
+right: 0;
   }
 
  #new-game {
