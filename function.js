@@ -6,7 +6,7 @@ function keyPressed (){
       case LEFT_ARROW:  
      paddle.isMovingLeft=true;
      break;   
-   case ENTER: 
+    case ENTER: 
     isGoing=true; 
     gameIsPlaying=true;
     break;
@@ -29,31 +29,27 @@ function keyPressed (){
     //if the game is not won the player can continue to play until the chances are over
    if(!youWin && youLose && chances>=1) {
     loop ();
-    isGoing=true;
     life=5;
   }
    if (youWin && score>=levelTwo){ 
-    isGoing=true;
+    gameIsPlaying=true;
     level=2;
     loop ();
   }  
   if (youWin&& score>=levelThree) {
-    isGoing=true;
+    gameIsPlaying=true;
     level=3;
   
   }
    }
   function stopTheGame (){
-    if(!gameIsPlaying && chances>=1 && youLose ) {
-    isGoing=true;
-    gameIsPlaying=true;
+    if(!gameIsPlaying) {
+      gameIsPlaying=true;
+  
     life=5;
-   loop ();
-    } 
-    if (gameIsPlaying && chances>=1 && youLose ) {
-        isGoing=false;
-        gameIsPlaying=false;
-    //  noLoop();
+   
+    }  else if (gameIsPlaying) {
+      gameIsPlaying=false;
     }
   } 
    

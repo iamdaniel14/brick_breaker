@@ -7,25 +7,21 @@ let scl=20;
 let bricks=[];
 let life =5;
 let score=0;
-let button;
+let newGame;
 let level=1;
-let isGoing=false;
+let gameIsPlaying=false;
 let youWin=false;
 let youLose=false;
 let chances =5;
 let levelTwo=100;
-let levelThree=100;
-let gameIsPlaying=false;
-
+let levelThree=200;
 
 
 function setup() {
 let canvas=createCanvas(windowWidth*0.3, windowHeight*0.8);
 canvas.parent ('canvas-container');
-button=select('#button');
-button.mousePressed(refreshed);
-
-
+newGame=select('#new-game');
+newGame.mousePressed(refreshed);
  cols=(width/scl);
  rows= (height *0.5)/scl;
    for (let i=0; i<=cols; i++) { 
@@ -49,36 +45,35 @@ function draw() {
   paddle.edges ();
   ball.show ();
   ball.edges ();
-  if(isGoing)  {
+  if (gameIsPlaying)  {
   ball.update (); 
   } 
-  if (isGoing) {
+  if (gameIsPlaying) {
   paddle.update ();
   } 
  
   if (ball.pos.y<=height+ball.r && ball.pos.y>=height ) {
   life--;
  ball.pos.set(random(width),height*0.7);
-
+ }
 if (life<=0) {
     push ()
     fill ('red');
     textAlign(CENTER);
     textSize (80);
-    text ('GAME OVER',width/2,height*0.6);
+    text ('GAME OVER',width/2,height*0.7);
     youWin=false;
     gameIsPlaying=false;
     youLose=true;
-    isGoing=false;
-        chances--;
+   gameIsPlaying=false;
+     chances--;
     noLoop();
     pop()
 }
 
-  }
+ 
   for (let i=0; i <cols; i++) {
-    for (let j=0; j< bricks[i].length; j++) {
-    
+  for (let j=0; j< bricks[i].length; j++) {
     bricks [i][j].show ();
     if (bricks[i][j].meets (ball)) {
       ball.dir.y*=-1;
@@ -89,21 +84,19 @@ if (life<=0) {
         fill ('red');
         textAlign(CENTER);
         textSize (80);
-        text ('YOU WIN',width/2,height*0.6);
+        text ('YOU WIN',width/2,height*0.7);
         youWin=true;
-        isGoing=false;
         gameIsPlaying=false;
         chances++;
-        noLoop();
+         noLoop();
         pop()
       } else if (score===levelThree) {
         push ()
         fill ('red');
         textAlign(CENTER);
         textSize (80);
-        text ('YOU WIN',width/2,height*0.6);
+        text ('YOU WIN',width/2,height*0.7);
         youWin=true;
-        isGoing=false;
         gameIsPlaying=false;
         chances++;
         noLoop();
@@ -120,12 +113,11 @@ if (life<=0) {
        if (!gameIsPlaying) {
         document.querySelector('#stop').innerHTML='play';
        } 
-       if (gameIsPlaying){
+       if  (gameIsPlaying){
         document.querySelector('#stop').innerHTML='stop';
-
        }
       }
-      if (ball.meets (paddle)) {
+      if (ball.meets(paddle)) {
        ball.dir.y *=-1;
      }
   

@@ -14,11 +14,12 @@ class Ball {
      pop ()
   }
     update (){
-      this.pos.x+=this.vel.x*this.dir.x+cos(this.angle);
-      this.pos.y+=this.vel.y*this.dir.y +sin (this.angle);
+      this.pos.x+=this.vel.x*this.dir.x
+      this.pos.y+=this.vel.y*this.dir.y 
+      
     }
       meets (paddle){
-      if (this.pos.x>paddle.pos.x-this.r && this.pos.x <paddle.pos.x+paddle.w+this.r && this.pos.y >paddle.pos.y -this.r  && this.pos.y< paddle.pos.y) {
+      if(this.pos.x>=paddle.pos.x-this.r && this.pos.x <paddle.pos.x+paddle.w+this.r && this.pos.y>paddle.pos.y -this.r  && this.pos.y<paddle.pos.y) {
         return true;
         } 
       }
@@ -28,8 +29,8 @@ class Ball {
       } else if (this.pos.x<this.r){
         this.dir.x *=-1;
       } 
-       else if (this.pos.y <this.r){
-        this.dir.y *=-1;
+       else if (this.pos.y <=this.r){
+        this.dir.y*=-1;
       }  
     }
 
